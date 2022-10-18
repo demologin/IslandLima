@@ -7,84 +7,62 @@ import com.javarush.island.khmelov.entity.map.Cell;
 import com.javarush.island.khmelov.entity.organizms.Limit;
 import com.javarush.island.khmelov.entity.organizms.Organism;
 
-import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.Consumer;
 
-public abstract class Animal
-        extends Organism
-        implements Eating, Reproducible, Movable {
+public abstract class Animal extends Organism implements Eating, Reproducible, Movable {
 
-    public Animal(String name, String icon, double weight, Limit limit) {
-        super(name, icon, weight, limit);
+    public Animal(String name, String icon, Limit limit) {
+        super(name, icon, limit);
     }
 
     @Override
-    public void eat(Cell currentCell) {
-
-    }
-
-    @Override
-    public Cell move(Cell startCell) {
-        int countCellForStep = this.getLimit().getMaxSpeed();
-        Cell last = findLastCell(startCell, countCellForStep);
-        removeMe(startCell);
-        addMe(last);
-        return last;
-    }
-
-    @Override
-    public void spawn(Cell currentCell) {
-        Type type = this.getClass();
-        Map<Type, Set<Organism>> residents = currentCell.getResidents();
-        Set<Organism> organisms = residents.get(type);
-        if (Objects.nonNull(organisms) && organisms.contains(this) && organisms.size() > 2) {
-            bornClone(currentCell);
+    public boolean eat(Cell currentCell) {
+        if (safeFindFood(currentCell)) {
+            return true;
         }
-    }
-
-    private Cell findLastCell(Cell startCell, int countCellForStep) {
-        Set<Cell> visitedCells = new HashSet<>();
-        while (visitedCells.size() < countCellForStep) {
-            var nextCells = startCell
-                    .getNextCell()
-                    .stream()
-                    .filter(cell -> !visitedCells.contains(cell))
-                    .toList();
-            int countDirections = nextCells.size();
-            if (countDirections > 0) {
-                startCell = nextCells.get(ThreadLocalRandom.current().nextInt(countDirections));
-                visitedCells.add(startCell);
-            } else {
-                break;
-            }
+        if (getWeight() > 0) {
+            return safeChangeWeight(currentCell, -5);
         }
-        return startCell;
+        return !safeDie(currentCell);
+
     }
 
-    private void addMe(Cell cell) {
-        safeModification(cell, c -> c.getResidents().get(this.getClass()).add(this));
+
+    @Override
+    public boolean move(Cell startCell) {
+        int countStep = this.getLimit().getMaxSpeed();
+        Cell destinationCell = startCell.getNextCell(countStep);
+        return safeMove(startCell, destinationCell);
     }
 
-    private void removeMe(Cell cell) {
-        safeModification(cell, c -> c.getResidents().get(this.getClass()).remove(this));
+    @Override
+    public boolean spawn(Cell cell) {
+        return safeSpawnAnimal(cell);
     }
 
-    private void bornClone(Cell cell) {
-        safeModification(cell, c -> c.getResidents().get(this.getClass()).add(this.clone()));
-    }
-
-    private void safeModification(Cell cell, Consumer<Cell> operation) {
+    private boolean safeSpawnAnimal(Cell cell) {
         cell.getLock().lock();
         try {
-            operation.accept(cell);
+            Set<Organism> organisms = cell.getResidents().get(getType());
+            double maxWeight = getLimit().getMaxWeight();
+            if (getWeight() > maxWeight / 2 &&
+                    organisms.contains(this) &&
+                    organisms.size() >= 2 &&
+                    organisms.size() < getLimit().getMaxCount()
+            ) {
+                //all animals lose weight after the birth of offspring
+                double childWeight = getWeight() / 2;
+                setWeight(childWeight / 2);
+                Organism clone = Organism.clone(this);
+                clone.setWeight(childWeight);
+                organisms.add(clone);
+                return true;
+            }
         } finally {
             cell.getLock().unlock();
         }
+        return false;
     }
+
 
 }

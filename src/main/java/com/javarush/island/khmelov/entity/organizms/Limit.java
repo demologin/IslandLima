@@ -1,9 +1,9 @@
 package com.javarush.island.khmelov.entity.organizms;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@Data
+@Getter
 @RequiredArgsConstructor
 public class Limit {
     private final double maxWeight;

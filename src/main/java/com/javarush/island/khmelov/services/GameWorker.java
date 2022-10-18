@@ -1,6 +1,8 @@
 package com.javarush.island.khmelov.services;
 
+import com.javarush.island.khmelov.config.Setting;
 import com.javarush.island.khmelov.entity.Game;
+import com.javarush.island.khmelov.view.View;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -11,16 +13,21 @@ import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
 public class GameWorker extends Thread {
-    public static final int PERIOD = 1000;
     private final Game game;
+    private final int PERIOD = Setting.get().getPeriod();
 
     @Override
     public void run() {
+        View view = game.getView();
+        view.showMap();
+        view.showStatistics();
         ScheduledExecutorService mainPool = Executors.newScheduledThreadPool(4);
 
-        List<OrganismWorker> workers = game.getEntityFactory().getAllPrototypes()
+        List<OrganismWorker> workers = game
+                .getEntityFactory()
+                .getAllPrototypes()
                 .stream()
-                .map(p -> new OrganismWorker(p, game.getGameMap()))
+                .map(o -> new OrganismWorker(o, game.getGameMap()))
                 .toList();
         mainPool.scheduleAtFixedRate(() -> {
             ExecutorService servicePool = Executors.newFixedThreadPool(4);
@@ -28,12 +35,12 @@ public class GameWorker extends Thread {
             servicePool.shutdown();
             try {
                 if (servicePool.awaitTermination(PERIOD, TimeUnit.MILLISECONDS)) {
-                     game.getView().showMap();
-                     game.getView().showStatistics();
+                        view.showMap();
+                        view.showStatistics();
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }, PERIOD, PERIOD, TimeUnit.MILLISECONDS); //TODO need config
+        }, PERIOD, PERIOD, TimeUnit.MILLISECONDS);
     }
 }

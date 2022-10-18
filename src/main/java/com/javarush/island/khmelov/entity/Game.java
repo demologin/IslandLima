@@ -5,9 +5,11 @@ import com.javarush.island.khmelov.repository.Factory;
 import com.javarush.island.khmelov.view.View;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@Data
-@AllArgsConstructor
+@Getter
+@RequiredArgsConstructor
 public class Game {
 
     private final GameMap gameMap;

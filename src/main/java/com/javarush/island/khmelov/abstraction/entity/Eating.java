@@ -5,6 +5,6 @@ import com.javarush.island.khmelov.entity.map.Cell;
 @FunctionalInterface
 public interface Eating {
 
-    void eat(Cell currentCell);
+    boolean eat(Cell currentCell);
 
 }

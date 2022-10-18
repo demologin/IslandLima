@@ -1,6 +1,7 @@
 package experimental;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.*;
@@ -14,6 +15,7 @@ public class CheckThreadSpeedTest {
     public static final Lock lock = new ReentrantLock();
 
     @Test
+    @Disabled
     public void checkSpeed() throws InterruptedException {
         ForkJoinPool forkJoinPool = new ForkJoinPool();
         int parallelism = forkJoinPool.getParallelism();
@@ -25,9 +27,7 @@ public class CheckThreadSpeedTest {
             Thread thread = new Thread("th" + i) {
                 @Override
                 public void run() {
-                    lock.lock();
-                    counter.incrementAndGet();
-                    lock.unlock();
+                        counter.incrementAndGet();
                 }
             };
             pool.execute(thread);
