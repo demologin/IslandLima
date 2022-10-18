@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA all data ###
-.idea
+.idea/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -39,3 +39,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+

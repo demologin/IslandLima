@@ -47,13 +47,7 @@ public class OrganismWorker implements Runnable {
             try {
                 organisms.forEach(organism -> {
                     //here possible action-cycle for entity (enum, collection or array)
-                    Task task = new Task(organism, o -> {
-                        o.spawn(cell);
-                        if (organism instanceof Animal animal) {
-                            animal.eat(cell);
-                            animal.move(cell);
-                        }
-                    });
+                    Task task = new Task(organism, cell);
                     tasks.add(task);
                 });
             } finally {
@@ -63,7 +57,7 @@ public class OrganismWorker implements Runnable {
             //run tasks
             //see CQRS pattern or CommandBus pattern and Producer-Consumer problem.
             //This cycle can to run in other thread or threads (pool)
-            tasks.forEach(Task::run);
+            tasks.forEach(Task::execute);
             tasks.clear();
         }
     }

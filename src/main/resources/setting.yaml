@@ -1,8 +1,8 @@
 ---
 period: 1000
-rows: 6
-cols: 10
-consoleCellWith: 3
+rows: 20
+cols: 100
+consoleCellWith: 4
 foodMap:
   Wolf:
     Horse: 10
