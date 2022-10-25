@@ -3,9 +3,9 @@ package com.javarush.island.khmelov.entity.organizms.animals.herbivores;
 import com.javarush.island.khmelov.abstraction.annotations.TypeData;
 import com.javarush.island.khmelov.entity.organizms.Limit;
 
-@TypeData(name = "Лошадка", icon = "\uD83D\uDC0E", maxWeight = 400, maxCountInCell = 20, flockSize = 10, maxSpeed = 4, maxFood = 60)
-public class Horse extends Herbivore {
-    public Horse(String name, String icon, Limit limit) {
+@TypeData(name = "Мышка", icon = "\uD83D\uDC01", maxWeight = 0.05, maxCountInCell = 500, flockSize = 50, maxSpeed = 1, maxFood = 0.01)
+public class Mouse extends Herbivore {
+    public Mouse(String name, String icon, Limit limit) {
         super(name, icon, limit);
     }
 

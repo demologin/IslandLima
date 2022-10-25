@@ -3,11 +3,10 @@ package com.javarush.island.khmelov.services;
 import com.javarush.island.khmelov.entity.map.Cell;
 import com.javarush.island.khmelov.entity.map.GameMap;
 import com.javarush.island.khmelov.entity.organizms.Organism;
-import com.javarush.island.khmelov.entity.organizms.animals.Animal;
+import com.javarush.island.khmelov.entity.organizms.Organisms;
 
 import java.util.Objects;
 import java.util.Queue;
-import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class OrganismWorker implements Runnable {
@@ -40,15 +39,14 @@ public class OrganismWorker implements Runnable {
 
     private void processOneCell(Cell cell) {
         String type = prototype.getType();
-        Set<Organism> organisms = cell.getResidents().get(type);
+        Organisms organisms = cell.getResidents().get(type);
         if (Objects.nonNull(organisms)) {
             //build tasks (need correct iteration, without any modification)
             cell.getLock().lock(); //ONLY READ
             try {
                 organisms.forEach(organism -> {
                     //here possible action-cycle for entity (enum, collection or array)
-                    Task task = new Task(organism, cell);
-                    tasks.add(task);
+                    tasks.add(new Task(organism, cell));
                 });
             } finally {
                 cell.getLock().unlock();
@@ -57,7 +55,7 @@ public class OrganismWorker implements Runnable {
             //run tasks
             //see CQRS pattern or CommandBus pattern and Producer-Consumer problem.
             //This cycle can to run in other thread or threads (pool)
-            tasks.forEach(Task::execute);
+            tasks.forEach(Task::doTask);
             tasks.clear();
         }
     }

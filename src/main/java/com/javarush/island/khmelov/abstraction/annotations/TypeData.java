@@ -14,10 +14,12 @@ public @interface TypeData {
 
     double maxWeight();
 
-    int maxCount();
+    int maxCountInCell();
+
+    int flockSize() default 1;
 
     int maxSpeed();
 
-    int maxFood();
+    double maxFood();
 
 }

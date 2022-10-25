@@ -6,7 +6,11 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.javarush.island.khmelov.entity.organizms.Organism;
+import com.javarush.island.khmelov.entity.organizms.animals.herbivores.Deer;
 import com.javarush.island.khmelov.entity.organizms.animals.herbivores.Horse;
+import com.javarush.island.khmelov.entity.organizms.animals.herbivores.Mouse;
+import com.javarush.island.khmelov.entity.organizms.animals.herbivores.Rabbit;
+import com.javarush.island.khmelov.entity.organizms.animals.predators.Bear;
 import com.javarush.island.khmelov.entity.organizms.animals.predators.Wolf;
 import com.javarush.island.khmelov.entity.organizms.plants.Plant;
 import lombok.AccessLevel;
@@ -14,19 +18,20 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
 
-import java.io.File;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Properties;
 
 @Getter
 @Setter(AccessLevel.PROTECTED)
 public class Setting {
 
-    public static final String SETTING_YAML = "setting.yaml";
-    private static final Class<?>[] TYPES = {Plant.class, Wolf.class, Horse.class};
+    public static final String SETTING_YAML = "khmelov/setting.yaml";
+    private static final Class<?>[] TYPES = {
+            Wolf.class, Bear.class,
+            Horse.class, Mouse.class, Deer.class, Rabbit.class,
+            Plant.class,};
     public static final Organism[] PROTOTYPES = EntityScanner.createPrototypes(TYPES);
 
     //======================== SAFE_THREAD_SINGLETON =============================
@@ -51,7 +56,12 @@ public class Setting {
     private int period;
     private int rows;
     private int cols;
+
+    private int showRows;
+    private int showCols;
     private int consoleCellWith;
+    private int percentAnimalSlim;
+    private int percentPlantGrow;
     @Getter(AccessLevel.PROTECTED)
     private Map<String, Map<String, Integer>> foodMap = new LinkedHashMap<>();
 
@@ -70,9 +80,15 @@ public class Setting {
 
     private void loadFromDefault() {
         period = Default.PERIOD;
+
         rows = Default.ROWS;
         cols = Default.COLS;
+
+        showRows = Default.SHOW_ROWS;
+        showCols = Default.SHOW_COLS;
         consoleCellWith = Default.CONSOLE_CELL_WITH;
+        percentAnimalSlim = Default.PERCENT_ANIMAL_SLIM;
+        percentPlantGrow = Default.PERCENT_PLANT_GROW;
         for (int i = 0, n = Default.names.length; i < n; i++) {
             String key = Default.names[i];
             this.foodMap.putIfAbsent(key, new LinkedHashMap<>());

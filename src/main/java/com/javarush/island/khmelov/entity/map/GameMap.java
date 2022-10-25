@@ -1,14 +1,8 @@
 package com.javarush.island.khmelov.entity.map;
 
-import com.javarush.island.khmelov.entity.organizms.Organism;
+import com.javarush.island.khmelov.entity.organizms.Organisms;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class GameMap {
     private final Cell[][] cells;
@@ -29,14 +23,14 @@ public class GameMap {
         return cells[0].length;
     }
 
-    public Set<Organism> getAll() {
-        Set<Organism> all = new HashSet<>();
+    public Organisms getAll() {
+        Organisms all = new Organisms();
         for (Cell[] row : cells) {
             for (Cell cell : row) {
                 all.addAll(cell.getResidents()
                         .values()
                         .stream()
-                        .flatMap(Collection::stream)
+                        .flatMap(Organisms::stream)
                         .collect(Collectors.toSet()));
             }
         }

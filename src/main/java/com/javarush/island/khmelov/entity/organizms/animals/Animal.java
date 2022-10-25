@@ -3,11 +3,11 @@ package com.javarush.island.khmelov.entity.organizms.animals;
 import com.javarush.island.khmelov.abstraction.entity.Eating;
 import com.javarush.island.khmelov.abstraction.entity.Movable;
 import com.javarush.island.khmelov.abstraction.entity.Reproducible;
+import com.javarush.island.khmelov.config.Setting;
 import com.javarush.island.khmelov.entity.map.Cell;
 import com.javarush.island.khmelov.entity.organizms.Limit;
 import com.javarush.island.khmelov.entity.organizms.Organism;
-
-import java.util.Set;
+import com.javarush.island.khmelov.entity.organizms.Organisms;
 
 public abstract class Animal extends Organism implements Eating, Reproducible, Movable {
 
@@ -21,16 +21,17 @@ public abstract class Animal extends Organism implements Eating, Reproducible, M
             return true;
         }
         if (getWeight() > 0) {
-            return safeChangeWeight(currentCell, -5);
+            return safeChangeWeight(currentCell, -1 * Setting.get().getPercentAnimalSlim());
         }
         return !safeDie(currentCell);
-
     }
 
 
     @Override
     public boolean move(Cell startCell) {
-        int countStep = this.getLimit().getMaxSpeed();
+        int countStep = this
+                .getLimit()
+                .getMaxSpeed();
         Cell destinationCell = startCell.getNextCell(countStep);
         return safeMove(startCell, destinationCell);
     }
@@ -43,12 +44,12 @@ public abstract class Animal extends Organism implements Eating, Reproducible, M
     private boolean safeSpawnAnimal(Cell cell) {
         cell.getLock().lock();
         try {
-            Set<Organism> organisms = cell.getResidents().get(getType());
+            Organisms organisms = cell.getResidents().get(getType());
             double maxWeight = getLimit().getMaxWeight();
             if (getWeight() > maxWeight / 2 &&
                     organisms.contains(this) &&
-                    organisms.size() >= 2 &&
-                    organisms.size() < getLimit().getMaxCount()
+                    (organisms.getLimit().getFlockSize() > 1 || organisms.size() >= 2) &&
+                    organisms.size() < getLimit().getMaxCountInCell()
             ) {
                 //all animals lose weight after the birth of offspring
                 double childWeight = getWeight() / 2;

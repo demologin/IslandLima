@@ -1,37 +1,24 @@
 package com.javarush.island.khmelov.entity.map;
 
 import com.javarush.island.khmelov.entity.organizms.Organism;
-import com.javarush.island.khmelov.util.Probably;
+import com.javarush.island.khmelov.util.Rnd;
 import lombok.Getter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 public class Cell {
+
     private final List<Cell> nextCell = new ArrayList<>();
     @Getter
     private final Lock lock = new ReentrantLock(true);
     @Getter
-    private final Map<String, Set<Organism>> residents = new HashMap<>() {
-        private void checkNull(Object key) {
-            this.putIfAbsent(key.toString(), new HashSet<>());
-        }
-
-        @Override
-        public Set<Organism> get(Object key) {
-            checkNull(key);
-            return super.get(key);
-        }
-
-        @Override
-        public Set<Organism> put(String key, Set<Organism> value) {
-            checkNull(key);
-            return super.put(key, value);
-        }
-    };
-
+    private final Residents residents = new Residents(this);
 
     public void updateNextCell(GameMap map, int row, int col) {
         Cell[][] cells = map.getCells();
@@ -52,8 +39,8 @@ public class Cell {
                     .toList();
             int countDirections = nextCells.size();
             if (countDirections > 0) {
-                int index = Probably.random(0, countDirections);
-                currentCell = nextCells.get(index);
+                int index = Rnd.random(0, countDirections);
+                currentCell = nextCells.get(nextCells.size() - 1 - index);
                 visitedCells.add(currentCell);
             } else {
                 break;
@@ -62,7 +49,7 @@ public class Cell {
         return currentCell;
     }
 
-    public int getNextCellCount(){
+    public int getNextCellCount() {
         return nextCell.size();
     }
 
@@ -71,7 +58,11 @@ public class Cell {
         return getResidents().values().stream()
                 .filter((list) -> list.size() > 0)
                 .sorted((o1, o2) -> o2.size() - o1.size())
-                .map(set -> set.stream().findAny().get().getLetter())
+                .map(set -> set
+                        .stream()
+                        .findAny()
+                        .map(Organism::getLetter)
+                        .orElse("?"))
                 .map(Object::toString)
                 .collect(Collectors.joining());
     }

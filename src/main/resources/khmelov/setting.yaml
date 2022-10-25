@@ -1,11 +1,15 @@
 ---
-period: 1000
+period: 100
 rows: 20
 cols: 100
+showRows: 5
+showCols: 10
 consoleCellWith: 4
+percentAnimalSlim: 5
+percentPlantGrow: 25
 foodMap:
   Wolf:
-    Horse: 10
+    Horse: 50
     Deer: 15
     Rabbit: 60
     Mouse: 80

@@ -4,9 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Default {
     public static final int PERIOD = 1000;
-    public static final int ROWS = 2;
-    public static final int COLS = 2;
+    public static final int ROWS = 3;
+    public static final int COLS = 3;
+
+    public static final int SHOW_ROWS = 5;
+    public static final int SHOW_COLS = 10;
     public static final int CONSOLE_CELL_WITH = 3;
+    public static final int PERCENT_ANIMAL_SLIM = 4;
+    public static final int PERCENT_PLANT_GROW = 15;
     @JsonIgnore
     static final String[] names = {
             "Wolf", "Boa", "Fox", "Bear", "Eagle",

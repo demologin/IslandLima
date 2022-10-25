@@ -5,8 +5,6 @@ import com.javarush.island.khmelov.entity.organizms.Organism;
 import com.javarush.island.khmelov.entity.organizms.animals.Animal;
 import lombok.Getter;
 
-import java.util.function.Consumer;
-
 @Getter
 public class Task {
 
@@ -18,13 +16,16 @@ public class Task {
         this.cell = cell;
     }
 
-    public void execute() {
-        organism.spawn(cell);
+    public void doTask() {
         if (organism instanceof Animal animal) {
-            animal.eat(cell);
+            if (animal.eat(cell)) {
+                animal.spawn(cell);
+            }
             animal.move(cell);
+
+        } else {
+            organism.spawn(cell);
         }
     }
-
 
 }
