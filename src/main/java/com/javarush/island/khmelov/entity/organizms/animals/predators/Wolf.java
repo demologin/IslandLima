@@ -3,7 +3,8 @@ package com.javarush.island.khmelov.entity.organizms.animals.predators;
 import com.javarush.island.khmelov.abstraction.annotations.TypeData;
 import com.javarush.island.khmelov.entity.organizms.Limit;
 
-@TypeData(name = "Волк", icon = "\uD83D\uDC3A", maxWeight = 50, maxCountInCell = 30, flockSize = 15, maxSpeed = 3, maxFood = 8)
+@TypeData(name = "Волк", icon = "\uD83D\uDC3A", maxWeight = 50, maxCountInCell = 30,
+        flockSize = 15, maxSpeed = 3, maxFood = 8)
 public class Wolf extends Predator {
 
 
