@@ -2,6 +2,7 @@ package com.javarush.island.khmelov.entity.organizms;
 
 import com.javarush.island.khmelov.entity.map.Cell;
 import com.javarush.island.khmelov.entity.map.GameMap;
+import com.javarush.island.khmelov.entity.map.Residents;
 import com.javarush.island.khmelov.entity.organizms.animals.predators.Wolf;
 import com.javarush.island.khmelov.repository.EntityFactory;
 import com.javarush.island.khmelov.repository.Factory;
@@ -26,11 +27,12 @@ class OrganismTest {
         Factory factory = new EntityFactory();
         GameMapCreator creator = new GameMapCreator(factory);
         map = creator.createRandomFilledGameMap(3, 3, true);
-        Limit limit = new Limit(100, 30, 1, 1);
+        Limit limit = new Limit(100, 30, 1, 1, 1);
         wolf = new Wolf("testWolf", "W", limit);
+        wolf.setWeight(limit.getMaxWeight());
         Cell[][] cells = map.getCells();
         startCell = cells[0][0];
-        Map<String, Set<Organism>> residents = startCell.getResidents();
+        Residents residents = startCell.getResidents();
         residents.get(wolf.getType()).add(wolf);
     }
 
@@ -50,7 +52,8 @@ class OrganismTest {
 
     @Test
     void changeWeight() {
-        double expected = wolf.getWeight() + wolf.getLimit().getMaxWeight() * 0.1;
+        double expected =  wolf.getLimit().getMaxWeight();
+        wolf.setWeight(wolf.getLimit().getMaxWeight()-0.001);
         wolf.safeChangeWeight(startCell, 10);
         Assertions.assertEquals(expected, wolf.getWeight());
     }
@@ -65,7 +68,7 @@ class OrganismTest {
 
     @Test
     void differentIdAfterClone(){
-        Limit limit = new Limit(1, 2, 3, 4);
+        Limit limit = new Limit(1, 2, 3, 4, 1);
         Wolf wolf = new Wolf("v", "i", limit);
         Wolf clone = Organism.clone(wolf);
         Assertions.assertNotEquals(wolf.getId(),clone.getId());
