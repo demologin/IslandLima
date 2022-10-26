@@ -12,7 +12,7 @@ class ConsoleViewTest {
     private ConsoleView consoleView;
 
     @BeforeEach
-    private void setup() {
+    public void setup() {
         GameMapCreator gameMapCreator = new GameMapCreator(new EntityFactory());
         GameMap map = gameMapCreator.createRandomFilledGameMap(4, 20);
         consoleView = new ConsoleView(map);
@@ -22,12 +22,9 @@ class ConsoleViewTest {
     void showMap() {
         String view = consoleView.showMap();
         String statistics = consoleView.showStatistics();
-        Assertions.assertTrue(view.contains("╔"));
-        Assertions.assertTrue(view.contains("\n╠"));
-        Assertions.assertTrue(view.contains("\n╚"));
-        Assertions.assertTrue(view.contains("╗\n"));
-        Assertions.assertTrue(view.contains("╣\n"));
-        Assertions.assertTrue(view.contains("╝"));
+        Assertions.assertTrue(view.contains("╔════╦════╦════╦════╦════╦════╦════╦════╦════╦════"));
+        Assertions.assertTrue(view.contains("╠════╬════╬════╬════╬════╬════╬════╬════╬════╬════"));
+        Assertions.assertTrue(view.contains("\n║"));
         Assertions.assertTrue(statistics.contains("{"));
         Assertions.assertTrue(statistics.contains("}"));
     }

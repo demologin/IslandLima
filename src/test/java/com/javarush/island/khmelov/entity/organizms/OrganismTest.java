@@ -29,6 +29,7 @@ class OrganismTest {
         map = creator.createRandomFilledGameMap(3, 3, true);
         Limit limit = new Limit(100, 30, 1, 1, 1);
         wolf = new Wolf("testWolf", "W", limit);
+        wolf.setWeight(limit.getMaxWeight());
         Cell[][] cells = map.getCells();
         startCell = cells[0][0];
         Residents residents = startCell.getResidents();
@@ -51,7 +52,8 @@ class OrganismTest {
 
     @Test
     void changeWeight() {
-        double expected = wolf.getWeight() + wolf.getLimit().getMaxWeight() * 0.1;
+        double expected =  wolf.getLimit().getMaxWeight();
+        wolf.setWeight(wolf.getLimit().getMaxWeight()-0.001);
         wolf.safeChangeWeight(startCell, 10);
         Assertions.assertEquals(expected, wolf.getWeight());
     }

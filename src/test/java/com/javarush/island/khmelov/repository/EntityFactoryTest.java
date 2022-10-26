@@ -8,6 +8,6 @@ class EntityFactoryTest {
     @Test
     void init() {
         EntityFactory entityFactory = new EntityFactory();
-        Assertions.assertTrue(entityFactory.toString().contains("⾋,"));
+        Assertions.assertTrue(entityFactory.toString().contains("{"));
     }
 }
