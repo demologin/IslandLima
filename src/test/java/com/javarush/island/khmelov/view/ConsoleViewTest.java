@@ -36,8 +36,8 @@ class ConsoleViewTest {
     void getColor() {
         int n = 100;
         for (int i = 0; i <= n; i++) {
-            String color = ConsoleView.Color.getColor(i, n);
-            System.out.print(color + " " + i + " "+ConsoleView.Color.RESET);
+            String color = Color.getColor(i, n);
+            System.out.print(color + " " + i + " "+Color.RESET);
         }
     }
 }
