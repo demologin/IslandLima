@@ -11,16 +11,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
-import java.util.Set;
-
 class OrganismTest {
 
 
     private GameMap map;
     private Wolf wolf;
     private Cell startCell;
-    private double delta;
 
     @BeforeEach
     void setUp() {
