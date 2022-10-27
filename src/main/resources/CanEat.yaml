@@ -1,0 +1,467 @@
+---
+whoCanEat:
+  woolf:
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 10
+  - name: "deer"
+    chanceToEat: 15
+  - name: "rabbit"
+    chanceToEat: 60
+  - name: "mouse"
+    chanceToEat: 80
+  - name: "goat"
+    chanceToEat: 60
+  - name: "sheep"
+    chanceToEat: 70
+  - name: "boar"
+    chanceToEat: 15
+  - name: "buffalo"
+    chanceToEat: 10
+  - name: "duck"
+    chanceToEat: 40
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 0
+  snake:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 15
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 20
+  - name: "mouse"
+    chanceToEat: 40
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 10
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 0
+  fox:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 70
+  - name: "mouse"
+    chanceToEat: 90
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 60
+  - name: "caterpillar"
+    chanceToEat: 40
+  - name: "grass"
+    chanceToEat: 0
+  bear:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 80
+  - name: "fox"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 40
+  - name: "deer"
+    chanceToEat: 80
+  - name: "rabbit"
+    chanceToEat: 80
+  - name: "mouse"
+    chanceToEat: 90
+  - name: "goat"
+    chanceToEat: 70
+  - name: "sheep"
+    chanceToEat: 70
+  - name: "boar"
+    chanceToEat: 50
+  - name: "buffalo"
+    chanceToEat: 20
+  - name: "duck"
+    chanceToEat: 10
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 0
+  eagle:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 80
+  - name: "fox"
+    chanceToEat: 10
+  - name: "bear"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 80
+  - name: "rabbit"
+    chanceToEat: 90
+  - name: "mouse"
+    chanceToEat: 90
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 80
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 0
+  horse:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
+  deer:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
+  rabbit:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
+  mouse:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 90
+  - name: "grass"
+    chanceToEat: 100
+  goat:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
+  sheep:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
+  boar:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 50
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 90
+  - name: "grass"
+    chanceToEat: 100
+  buffalo:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
+  duck:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "caterpillar"
+    chanceToEat: 90
+  - name: "grass"
+    chanceToEat: 100
+  caterpillar:
+  - name: "woolf"
+    chanceToEat: 0
+  - name: "snake"
+    chanceToEat: 0
+  - name: "fox"
+    chanceToEat: 0
+  - name: "bear"
+    chanceToEat: 0
+  - name: "eagle"
+    chanceToEat: 0
+  - name: "horse"
+    chanceToEat: 0
+  - name: "deer"
+    chanceToEat: 0
+  - name: "rabbit"
+    chanceToEat: 0
+  - name: "goat"
+    chanceToEat: 0
+  - name: "mouse"
+    chanceToEat: 0
+  - name: "sheep"
+    chanceToEat: 0
+  - name: "boar"
+    chanceToEat: 0
+  - name: "buffalo"
+    chanceToEat: 0
+  - name: "duck"
+    chanceToEat: 0
+  - name: "grass"
+    chanceToEat: 100
