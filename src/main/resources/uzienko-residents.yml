@@ -1,0 +1,172 @@
+- type: Bear
+  family: carnivores
+  icon: 🐻
+  weight: 500
+  speed: 2
+  food: 80
+  maxInCell: 5
+  foodList:
+    Snake: 80
+    Horse: 40
+    Deer: 80
+    Rabbit: 80
+    Mouse: 90
+    Goat: 70
+    Sheep: 70
+    Boar: 50
+    Buffalo: 20
+    Duck: 10
+- type: Wolf
+  family: carnivores
+  icon: 🐺
+  weight: 50
+  speed: 3
+  food: 8
+  maxInCell: 30
+  foodList:
+    Horse: 10
+    Deer: 15
+    Rabbit: 60
+    Mouse: 80
+    Goat: 60
+    Sheep: 70
+    Boar: 15
+    Buffalo: 10
+    Duck: 40
+- type: Eagle
+  family: carnivores
+  icon: 🦅
+  weight: 6
+  speed: 3
+  food: 1
+  maxInCell: 20
+  foodList:
+    Fox: 10
+    Rabbit: 90
+    Mouse: 90
+    Duck: 80
+- type: Snake
+  family: carnivores
+  icon: 🐍
+  weight: 15
+  speed: 1
+  food: 3
+  maxInCell: 30
+  foodList:
+    Fox: 15
+    Rabbit: 20
+    Mouse: 40
+    Duck: 10
+- type: Fox
+  family: carnivores
+  icon: 🦊
+  weight: 8
+  speed: 2
+  food: 2
+  maxInCell: 30
+  foodList:
+    Rabbit: 70
+    Mouse: 90
+    Duck: 60
+    Caterpillar: 40
+- type: Boar
+  family: herbivores
+  icon: 🐗
+  weight: 400
+  speed: 2
+  food: 50
+  maxInCell: 50
+  foodList:
+    Caterpillar: 90
+    Grass: 100
+- type: Buffalo
+  family: herbivores
+  icon: 🐃
+  weight: 700
+  speed: 3
+  food: 100
+  maxInCell: 10
+  foodList:
+    Grass: 100
+- type: Caterpillar
+  family: herbivores
+  icon: 🐛
+  weight: 0.01
+  speed: 0
+  food: 0
+  maxInCell: 1000
+  foodList:
+    Grass: 100
+- type: Deer
+  family: herbivores
+  icon: 🦌
+  weight: 300
+  speed: 4
+  food: 50
+  maxInCell: 20
+  foodList:
+    Grass: 100
+- type: Duck
+  family: herbivores
+  icon: 🦆
+  weight: 1
+  speed: 4
+  food: 0.15
+  maxInCell: 200
+  foodList:
+    Caterpillar: 90
+    Grass: 100
+- type: Goat
+  family: herbivores
+  icon: 🐐
+  weight: 60
+  speed: 3
+  food: 10
+  maxInCell: 140
+  foodList:
+    Grass: 100
+- type: Horse
+  family: herbivores
+  icon: 🐎
+  weight: 400
+  speed: 4
+  food: 60
+  maxInCell: 20
+  foodList:
+    Grass: 100
+- type: Mouse
+  family: herbivores
+  icon: 🐁
+  weight: 0.05
+  speed: 1
+  food: 0.01
+  maxInCell: 500
+  foodList:
+    Caterpillar: 90
+    Grass: 100
+- type: Rabbit
+  family: herbivores
+  icon: 🐇
+  weight: 2
+  speed: 2
+  food: 0.45
+  maxInCell: 150
+  foodList:
+    Grass: 100
+- type: Sheep
+  family: herbivores
+  icon: 🐑
+  weight: 70
+  speed: 3
+  food: 15
+  maxInCell: 140
+  foodList:
+    Grass: 100
+- type: Grass
+  family: plants
+  icon: 🌱
+  weight: 1
+  speed: 0
+  food: 0
+  maxInCell: 200
+  foodList:
