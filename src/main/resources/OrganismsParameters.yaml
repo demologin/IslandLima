@@ -1,0 +1,116 @@
+#parameters for any lives
+#Carnivorous
+organismParametersList:
+- name: woolf
+  icon: "\uD83D\uDC3A"
+  weight: 50
+  maxCountOnCell: 30
+  maxSpeedCells: 3
+  needFood: 8
+
+- name: snake
+  icon: "\uD83D\uDC0D"
+  weight: 15
+  maxCountOnCell: 30
+  maxSpeedCells: 1
+  needFood: 3
+
+- name: fox
+  icon: "\uD83E\uDD8A"
+  weight: 8
+  maxCountOnCell: 3
+  maxSpeedCells: 2
+  needFood: 2
+
+- name: bear
+  icon: "\uD83D\uDC3B"
+  weight: 500
+  maxCountOnCell: 5
+  maxSpeedCells: 2
+  needFood: 80
+
+- name: eagle
+  icon: "\uD83E\uDD85"
+  weight: 6
+  maxCountOnCell: 20
+  maxSpeedCells: 3
+  needFood: 1
+
+#Herbivorous
+- name: horse
+  icon: "\uD83D\uDC0E"
+  weight: 400
+  maxCountOnCell: 20
+  maxSpeedCells: 4
+  needFood: 60
+
+- name: deer
+  icon: "\uD83E\uDD8C"
+  weight: 300
+  maxCountOnCell: 20
+  maxSpeedCells: 4
+  needFood: 50
+
+- name: rabbit
+  icon: "\uD83D\uDC07"
+  weight: 2
+  maxCountOnCell: 150
+  maxSpeedCells: 2
+  needFood: 0.45
+
+- name: mouse
+  icon: "\uD83D\uDC01"
+  weight: 0.05
+  maxCountOnCell: 500
+  maxSpeedCells: 1
+  needFood: 0.01
+
+- name: goat
+  icon: "\uD83D\uDC10"
+  weight: 60
+  maxCountOnCell: 140
+  maxSpeedCells: 3
+  needFood: 10
+
+- name: sheep
+  icon: "\uD83D\uDC11"
+  weight: 70
+  maxCountOnCell: 140
+  maxSpeedCells: 3
+  needFood: 15
+
+- name: boar
+  icon: "\uD83D\uDC17"
+  weight: 400
+  maxCountOnCell: 50
+  maxSpeedCells: 2
+  needFood: 50
+
+- name: buffalo
+  icon: "\uD83D\uDC03"
+  weight: 700
+  maxCountOnCell: 10
+  maxSpeedCells: 3
+  needFood: 100
+
+- name: duck
+  icon: "\uD83E\uDD86"
+  weight: 1
+  maxCountOnCell: 200
+  maxSpeedCells: 4
+  needFood: 0.15
+
+- name: caterpillar
+  icon: "\uD83D\uDC1B"
+  weight: 0.01
+  maxCountOnCell: 999
+  maxSpeedCells: 0
+  needFood: 0
+
+#Plants
+- name: grass
+  icon: "\uD83C\uDF3F"
+  weight: 1
+  maxCountOnCell: 200
+  maxSpeedCells: null
+  needFood: null
