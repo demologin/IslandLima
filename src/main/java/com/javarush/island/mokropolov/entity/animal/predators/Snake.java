@@ -1,0 +1,1 @@
+package com.javarush.island.mokropolov.entity.animal.predators;import com.javarush.island.mokropolov.game.EntityPrefs;public class Snake extends Predator {    public Snake(EntityPrefs entityPrefs) {        super(entityPrefs);    }}
