@@ -1,0 +1,1 @@
+package com.javarush.island.mokropolov.entity.animal.herbivores;import com.javarush.island.mokropolov.game.EntityPrefs;public class Goat extends Herbivore{    public Goat(EntityPrefs entityPrefs) {        super(entityPrefs);    }}
