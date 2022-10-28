@@ -1,7 +1,6 @@
 package com.javarush.island.osypenko.pref;
 
 import com.javarush.island.osypenko.constants.CharacteristicsEntities;
-import com.javarush.island.osypenko.constants.Constants;
 import com.javarush.island.osypenko.entities.Organism;
 import com.javarush.island.osypenko.exception.AnimalException;
 import com.javarush.island.osypenko.field.Cell;
@@ -10,18 +9,19 @@ import com.javarush.island.osypenko.field.GameField;
 import java.util.Map;
 import java.util.Set;
 
+import static com.javarush.island.osypenko.constants.Constants.REPEAT;
 import static com.javarush.island.osypenko.field.GameField.field;
 
 public class Print {
+    boolean isLife = true;
     public void runner() {
         GameField gameField = new GameField();
         gameField.initialize();
-        System.out.println("*".repeat(Constants.REPEAT) + "\n");
+        System.out.println("*".repeat(REPEAT) + "\n");
         printState();
-        System.out.println("*".repeat(Constants.REPEAT) + "\n");
+        System.out.println("*".repeat(REPEAT) + "\n");
 
-        //noinspection InfiniteLoopStatement
-        while(true) {
+        do {
             gameField.makeStep();
             try {
                 //noinspection BusyWait
@@ -30,8 +30,8 @@ public class Print {
                 throw new AnimalException(e);
             }
             printState();
-            System.out.println("*".repeat(Constants.REPEAT) + "\n");
-        }
+            System.out.println("*".repeat(REPEAT) + "\n");
+        } while (isLife);
     }
     public void printState() {
         int bear = 0;
@@ -50,6 +50,7 @@ public class Print {
         int rabbit = 0;
         int sheep = 0;
         int grass = 0;
+
 
         for (Cell[] cells : field) {
             for (Cell item : cells) {
@@ -95,6 +96,11 @@ public class Print {
                 CharacteristicsEntities.getCharacteristicsEntities().get(EntitiesType.RABBIT).getIcon() + " = " + printColor(rabbit) + "  " +
                 CharacteristicsEntities.getCharacteristicsEntities().get(EntitiesType.SHEEP).getIcon() + " = " + printColor(sheep) + "  " +
                 CharacteristicsEntities.getCharacteristicsEntities().get(EntitiesType.GRASS).getIcon() + " = " + printColor(grass) + "  \n");
+
+        if (bear == 0 && eagle == 0 && fox == 0 && snake == 0 && wolf == 0 && boar == 0 && buffalo == 0 && caterpillar == 0 &&
+                deer == 0 && duck == 0 && goat == 0 && horse == 0 && mouse == 0 && rabbit == 0 && sheep == 0 && grass == 0) {
+            isLife = false;
+        }
     }
 
     private static String printColor(int i) {

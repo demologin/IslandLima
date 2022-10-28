@@ -52,3 +52,9 @@ INFO   	[22.окт..2022 17:00:13] [main] (File: Controller.java | Method:initGa
 		initGame start with 3 organisms in cell
 INFO   	[22.окт..2022 17:00:14] [main] (File: Controller.java | Method:initGame() | Line:63)
 		initGame end. Created 255923 organisms. Init time: 1458 ms
+INFO   	[28.Oct.2022 13:49:24] [main] (File: Controller.java | Method:initGame() | Line:43)
+		initGame start with 3 organisms in cell
+INFO   	[28.Oct.2022 13:49:25] [main] (File: Controller.java | Method:initGame() | Line:63)
+		initGame end. Created 243994 organisms. Init time: 2399 ms
+WARN   	[28.Oct.2022 13:49:36] [Thread-0] (File: Runner.java | Method:lambda$main$0() | Line:39)
+		The game was emergency stopped, the simulation was not finished

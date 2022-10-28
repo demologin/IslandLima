@@ -70,7 +70,7 @@ public abstract class Organism {
                         break;
                     }
                 } else {
-                    death = this.weight - organism.weight / 12;
+                    death = this.weight - this.weight * 5 / 100;
                     if (death > this.deathByStarvationAtWeight) {
                         isLife = false;
                         break;
